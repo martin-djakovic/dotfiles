@@ -231,9 +231,6 @@ default_floating_border pixel 2
 # set keyboard layout
 exec --no-startup-id setxkbmap -layout "us,rs,rs" -variant ",latinyz,"
 
-# colors
-include colorscheme.conf
-
 # class                 border  backgr. text    indicator child_border
 client.focused          #321321 #285577 #ffffff #c56b17   #c56b17
 client.focused_inactive #333333 #5f676a #ffffff #5f676a   #5f676a

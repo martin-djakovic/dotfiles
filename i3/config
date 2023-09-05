@@ -101,9 +101,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -186,6 +186,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# app launch keybinds
+bindsym $mod+s exec steam
+bindsym $mod+p exec /opt/enpass/Enpass
+bindsym $mod+m exec discord
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
@@ -197,7 +202,7 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id xautolock -time 5 -locker ~/.config/i3/autolock.sh -notify 5 -notifier dunst
 
 # lock immediately on startup 
-exec --no-startup-id dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false
+exec --no-startup-id dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false && xdotool key super+2 && xdotool key super+1
 
 # set mouse cursor speed
 exec --no-startup-id xinput set-prop "SteelSeries SteelSeries Rival 3" "libinput Accel Speed" -0.55
@@ -241,21 +246,21 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #c56b17
 client.background       #c56b17
 
 # screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshots/$(date).png"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshots/$$(date).png"
+bindsym Print exec --no-startup-id maim -m 10 "/home/$USER/Pictures/screenshots/$(date).png"
+bindsym $mod+Print exec --no-startup-id maim -m 10 --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshots/$$(date).png"
 bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/screenshots/$(date).png"
 
 # clipboard screenshots
-bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Ctrl+Print exec --no-startup-id maim -m 10 | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim -m 10 --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim -m 10 --select | xclip -selection clipboard -t image/png
 
 # stop steam stealing focus while starting
 no_focus [class="steamwebhelper"]
 no_focus [class="steam"]
 
 # AUTOSTART APPS
-exec steam -silent
-exec discord --start-minimized
+exec --no-startup-id i3-msg "workspace 3; exec steam -silent"
+exec sleep 5; discord --start-minimized
 
 exec --no-startup-id i3-msg workspace 1

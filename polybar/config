@@ -57,7 +57,7 @@ font-2 = MaterialIcons-Regular:size=11;3
 
 modules-left = xworkspaces multimedia xwindow
 modules-center = date
-modules-right = xkeyboard filesystem pulseaudio memory cpu wlan eth powermenu
+modules-right = xkeyboard filesystem pulseaudio memory cpu vpn eth powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -69,6 +69,14 @@ enable-ipc = true
 
 override-redirect = false
 wm-restack = i3
+
+[module/vpn]
+type = custom/script
+
+format-spacing = 0
+
+exec = ~/.config/polybar/vpn.sh
+interval = 5
 
 [module/multimedia]
 type = custom/script
@@ -210,7 +218,7 @@ label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
 [module/eth]
 inherit = network-base
 interface-type = wired
-label-connected = " "
+label-connected = ""
 
 [module/date]
 type = internal/date

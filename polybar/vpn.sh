@@ -1,0 +1,9 @@
+#!/bin/bash
+
+vpn=$((pgrep -a openvpn$ | head -n 1 | awk '{print $NF }' | cut -d '.' -f 1 && echo down) | head -n 1)
+
+if [ "$vpn" = "down" ]; then
+    echo "%{A1:pkexec /usr/sbin/openvpn --config /etc/openvpn/CG_Serbia.conf:}%{F#707880}%{F-}%{A}"
+else
+    echo "%{A1:pkexec killall -SIGINT openvpn:}%{F#ECA021}%{F-}%{A}"
+fi

@@ -57,7 +57,7 @@ font-2 = MaterialIcons-Regular:size=11;3
 
 modules-left = xworkspaces multimedia xwindow
 modules-center = date
-modules-right = xkeyboard filesystem pulseaudio memory cpu vpn eth powermenu
+modules-right = xkeyboard update filesystem pulseaudio memory cpu vpn eth powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -69,6 +69,14 @@ enable-ipc = true
 
 override-redirect = false
 wm-restack = i3
+
+[module/update]
+type = custom/script
+
+format-spacing = 0
+
+exec = ~/.config/polybar/update.sh
+interval = 10
 
 [module/vpn]
 type = custom/script

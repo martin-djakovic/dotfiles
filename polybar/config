@@ -24,7 +24,7 @@ primary = #C56B17
 primary-alt = #ECA021
 secondary = #8ABEB7
 alert = #A54242
-disabled = #707880
+disabled = #2f2f2f
 
 [bar/top]
 width = 100%
@@ -52,7 +52,7 @@ module-margin = 1
 separator-foreground = ${colors.disabled}
 
 font-0 = DejaVu Sans Mono:style=Solid:size=11;3
-font-1 = FontAwesome:size=11;3
+font-1 = Font Awesome:size=11;3
 font-2 = MaterialIcons-Regular:size=11;3
 
 modules-left = xworkspaces multimedia xwindow
@@ -216,7 +216,7 @@ format-connected = <label-connected>
 format-connected-foreground = ${colors.primary-alt}
 format-disconnected = <label-disconnected>
 format-disconnected-foreground = ${colors.disabled}
-label-disconnected = " "
+label-disconnected = ""
 
 [module/wlan]
 inherit = network-base
@@ -226,7 +226,7 @@ label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
 [module/eth]
 inherit = network-base
 interface-type = wired
-label-connected = ""
+label-connected = ""
 
 [module/date]
 type = internal/date

@@ -23,6 +23,9 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# lock immediately on startup 
+exec --no-startup-id dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false && xdotool key super+2 && xdotool key super+1
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -201,9 +204,6 @@ bindsym $mod+m exec discord
 # autolock screen after 5min
 exec --no-startup-id xautolock -time 5 -locker ~/.config/i3/autolock.sh -notify 5 -notifier dunst
 
-# lock immediately on startup 
-exec --no-startup-id dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false && xdotool key super+2 && xdotool key super+1
-
 # set mouse cursor speed
 exec --no-startup-id xinput set-prop "SteelSeries SteelSeries Rival 3" "libinput Accel Speed" -0.55
 
@@ -238,7 +238,7 @@ exec --no-startup-id setxkbmap -layout "us,rs,rs" -variant ",latinyz,"
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #321321 #285577 #ffffff #c56b17   #c56b17
-client.focused_inactive #333333 #5f676a #ffffff #5f676a   #212121
+client.focused_inactive #333333 #5f676a #ffffff #212121   #212121
 client.unfocused        #333333 #222222 #888888 #222222   #212121
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #c56b17
@@ -262,5 +262,9 @@ no_focus [class="steam"]
 # AUTOSTART APPS
 exec steam -silent
 exec sleep 5; discord --start-minimized
+
+
+# BACKUP
+exec rsync -r -t -v --progress --delete --ignore-existing -b -s --exclude .steam/ /home/martin '/media/martin/Debian Backup/grsync'
 
 exec --no-startup-id i3-msg workspace 1

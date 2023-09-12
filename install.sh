@@ -21,7 +21,7 @@ apt update
 wget https://launcher.mojang.com/download/Minecraft.deb
 wget https://github.com/shiftkey/desktop/releases/download/release-3.3.1-linux1/GitHubDesktop-linux-amd64-3.3.1-linux1.deb
 wget https://dl.discordapp.net/apps/linux/0.0.29/discord-0.0.29.deb
-apt install xorg i3 nvidia-driver nvidia-settings nvidia-driver-libs:i386 pulseaudio alsa-utils steam gimp inkscape lxappearance fonts-font-awesome thunderbird firefox-esr alacritty thunar vim git unzip shotwell celluloid gvfs-backends rofi polybar lightdm nitrogen picom xinput maim xclip xdotool libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev trash-cli gtk2-engines-murrine gtk2-engines-pixbuf rhythmbox xautolock libavcodec-extra playerctl gnome-disk-utility gufw enpass libreoffice libreoffice-gtk3 code printer-driver-hpcups gamemode openvpn openssl openresolv transmission-gtk deja-dup timeshift ./Minecraft.deb ./GitHubDesktop-linux-amd64-3.3.1-linux1.deb ./discord-0.0.29.deb -y
+apt install xorg i3 nvidia-driver nvidia-settings nvidia-driver-libs:i386 pulseaudio alsa-utils steam gimp inkscape lxappearance fonts-font-awesome thunderbird firefox-esr alacritty thunar vim git unzip shotwell celluloid gvfs-backends rofi polybar lightdm nitrogen picom xinput maim xclip xdotool libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev trash-cli gtk2-engines-murrine gtk2-engines-pixbuf rhythmbox xautolock libavcodec-extra playerctl gnome-disk-utility gufw enpass libreoffice libreoffice-gtk3 code printer-driver-hpcups gamemode openvpn openssl openresolv transmission-gtk rsync timeshift ./Minecraft.deb ./GitHubDesktop-linux-amd64-3.3.1-linux1.deb ./discord-0.0.29.deb -y
 apt install --no-install-recommends lxsession lxpolkit -y
 apt autoremove dmenu xterm libreoffice-math libreoffice-draw libreoffice-draw libreoffice-impress libreoffice-base -y
 mkdir /home/martin/.local/share/
@@ -42,3 +42,6 @@ chown -R martin:martin /home/martin/.local
 chown -R martin:martin /home/martin/.config
 chown -R martin:martin /home/martin/.Xresources
 timedatectl set-local-rtc 0
+
+echo "Don't forget to copy VPN files to /etc/openvpn"
+echo "Set up Timeshift and set rsync destination in i3/config"

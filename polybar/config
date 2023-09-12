@@ -76,7 +76,7 @@ type = custom/script
 format-spacing = 0
 
 exec = ~/.config/polybar/update.sh
-interval = 10
+interval = 60
 
 [module/vpn]
 type = custom/script

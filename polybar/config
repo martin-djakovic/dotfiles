@@ -89,7 +89,7 @@ interval = 5
 [module/multimedia]
 type = custom/script
 
-format-spacing = 0;
+format-spacing = 0
 format-foreground = ${colors.primary}
 
 exec = ~/.config/polybar/player.sh
@@ -178,7 +178,7 @@ format-volume = <label-volume>
 
 label-volume = %percentage%%
 
-label-muted = muted
+label-muted = " ---"
 label-muted-foreground = ${colors.disabled}
 
 [module/xkeyboard]
@@ -189,6 +189,9 @@ format = <label-layout> <label-indicator>
 
 label-layout = %name%
 label-layout-foreground = ${colors.primary-alt}
+
+format-prefix = " "
+format-prefix-foreground = ${colors.primary-alt}
 
 label-indicator-padding = 2
 label-indicator-margin = 1

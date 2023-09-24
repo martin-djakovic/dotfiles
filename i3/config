@@ -24,7 +24,7 @@ font pango:monospace 8
 exec --no-startup-id dex --autostart --environment i3
 
 # lock immediately on startup 
-exec --no-startup-id dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false && xdotool key super+0 && xdotool key super+1
+exec --no-startup-id dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false; sleep 0.5; xdotool key super+shift+0
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.

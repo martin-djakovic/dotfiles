@@ -196,7 +196,7 @@ format-prefix-foreground = ${colors.primary-alt}
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-foreground = ${colors.background}
-label-indicator-background = ${colors.secondary}
+label-indicator-background = ${colors.primary}
 
 [module/memory]
 type = internal/memory

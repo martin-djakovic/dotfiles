@@ -24,7 +24,7 @@ font pango:monospace 8
 exec --no-startup-id dex --autostart --environment i3
 
 # lock immediately on startup 
-exec --no-startup-id dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false; sleep 0.5; xdotool key super+shift+0
+exec --no-startup-id dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false; sleep 1; xdotool key super+shift+0; xdotool key super+0; xdotool key super+1
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -51,19 +51,19 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec alacritty
 
 # start browser
-bindsym $mod+b exec --no-startup-id firefox-esr
+bindsym $mod+b exec firefox-esr
 
 #start thunar
-bindsym $mod+t exec --no-startup-id thunar
+bindsym $mod+t exec thunar
 
 # kill focused window
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec rofi -show drun
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -260,8 +260,8 @@ no_focus [class="steamwebhelper"]
 no_focus [class="steam"]
 
 # AUTOSTART APPS
-exec steam -silent
-exec sleep 5; discord --start-minimized
+exec --no-startup-id i3-msg workspace 10; steam -silent
+exec --no-startup-id sleep 5; discord --start-minimized
 
 
 # BACKUP

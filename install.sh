@@ -45,3 +45,4 @@ timedatectl set-local-rtc 0
 
 echo "Don't forget to copy VPN files to /etc/openvpn"
 echo "Set up Timeshift and set rsync destination in i3/config"
+echo "Add @reboot sleep 10 && /usr/bin/apt-get update to sudo crontab -e"

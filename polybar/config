@@ -55,9 +55,9 @@ font-0 = DejaVu Sans Mono:style=Solid:size=11;3
 font-1 = Font Awesome:size=11;3
 font-2 = MaterialIcons-Regular:size=11;3
 
-modules-left = xworkspaces multimedia xwindow
+modules-left = xworkspaces xwindow
 modules-center = date
-modules-right = xkeyboard update filesystem pulseaudio memory cpu vpn eth powermenu
+modules-right = xkeyboard multimedia update filesystem pulseaudio memory cpu vpn eth powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -76,7 +76,7 @@ type = custom/script
 format-spacing = 0
 
 exec = ~/.config/polybar/update.sh
-interval = 60
+interval = once
 
 [module/vpn]
 type = custom/script
@@ -90,10 +90,10 @@ interval = 5
 type = custom/script
 
 format-spacing = 0
-format-foreground = ${colors.primary}
+format-foreground = ${colors.primary-alt}
 
 exec = ~/.config/polybar/player.sh
-interval = 0.5
+interval = once
 
 [module/powermenu]
 type = custom/menu
@@ -235,7 +235,7 @@ label-connected = ""
 type = internal/date
 interval = 1
 
-date = %H:%M %a %b %Y
+date = %H:%M %a %b %d, %Y
 
 label = %date%
 label-foreground = ${colors.foreground}

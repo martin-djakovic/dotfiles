@@ -265,6 +265,6 @@ exec --no-startup-id sleep 5; discord --start-minimized
 
 
 # BACKUP
-exec rsync -r -t -v --progress --delete --ignore-existing -b -s --exclude .steam/ /home/martin '/media/martin/Debian Backup/grsync'
+exec rsync -r -t -v --progress --delete -s --update --exclude .steam/ --exclude Downloads --exclude .local/share/Trash /home/martin '/media/martin/Debian Backup/rsync'
 
 exec --no-startup-id i3-msg workspace 1

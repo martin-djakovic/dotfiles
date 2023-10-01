@@ -30,6 +30,7 @@ cp -r themes/ /usr/share/
 cp -r wallpapers/ /home/martin/.local/share/
 cp -r icons/ /home/martin/.local/share/
 cp .bashrc /home/martin/
+cp .vimrc /home/martin/
 cp lightdm.conf /etc/lightdm/
 cp -r alacritty/ /home/martin/.config/
 cp -r picom/ /home/martin/.config/

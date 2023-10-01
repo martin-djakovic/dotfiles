@@ -151,8 +151,9 @@ configuration {
 * {
     bg: #212121;
     fg: #c5c8c6;
-    accent: #eca021;
-
+/*  YELLOW THEME*/
+/*    accent: #eca021;*/
+    accent: #5d75a1;
     background-color: @bg;
     color: @fg;
     

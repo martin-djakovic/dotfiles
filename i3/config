@@ -236,14 +236,24 @@ default_floating_border pixel 2
 # set keyboard layout
 exec --no-startup-id setxkbmap -layout "us,rs,rs" -variant ",latinyz,"
 
+# YELLOW THEME
 # class                 border  backgr. text    indicator child_border
-client.focused          #321321 #285577 #ffffff #c56b17   #c56b17
+#client.focused          #321321 #285577 #ffffff #c56b17   #c56b17
+#client.focused_inactive #333333 #5f676a #ffffff #212121   #212121
+#client.unfocused        #333333 #222222 #888888 #222222   #212121
+#client.urgent           #2f343a #900000 #ffffff #900000   #c56b17
+#client.placeholder      #000000 #0c0c0c #ffffff #000000   #c56b17
+
+# BLUE THEME
+# class                 border  backgr. text    indicator child_border
+client.focused          #321321 #285577 #ffffff #284374   #284374
 client.focused_inactive #333333 #5f676a #ffffff #212121   #212121
 client.unfocused        #333333 #222222 #888888 #222222   #212121
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #c56b17
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #284374
 
-client.background       #c56b17
+
+client.background       #284374
 
 # screenshots
 bindsym Print exec --no-startup-id maim -m 10 "/home/$USER/Pictures/screenshots/$(date).png"

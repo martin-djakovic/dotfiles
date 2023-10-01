@@ -163,7 +163,10 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b><span foreground='#eca021'>%s</span></b>\n%b"
+    # YELLOW THEME
+    #format = "<b><span foreground='#eca021'>%s</span></b>\n%b"
+    # BLUE THEME
+    format = "<b><span foreground='#5d75a1'>%s</span></b>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -201,7 +204,7 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Papirus-Dark
+    icon_theme = Papirus-indigo-ark
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 

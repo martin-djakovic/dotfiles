@@ -17,11 +17,22 @@
 ;==========================================================
 
 [colors]
+; Yellow theme
+;background = #212121
+;background-alt = #2f2f2f
+;foreground = #C5C8C6
+;primary = #C56B17
+;primary-alt = #ECA021
+;secondary = #8ABEB7
+;alert = #A54242
+;disabled = #2f2f2f
+
+; Blue theme
 background = #212121
 background-alt = #2f2f2f
 foreground = #C5C8C6
-primary = #C56B17
-primary-alt = #ECA021
+primary = #284374
+primary-alt = #5d75a1
 secondary = #8ABEB7
 alert = #A54242
 disabled = #2f2f2f
@@ -76,7 +87,7 @@ type = custom/script
 format-spacing = 0
 
 exec = ~/.config/polybar/update.sh
-interval = once
+interval = 120
 
 [module/vpn]
 type = custom/script
@@ -164,7 +175,10 @@ interval = 60
 
 mount-0 = /
 
-label-mounted = %{F#ECA021}%{F-} %free%
+format-mounted-prefix = " "
+format-mounted-prefix-foreground = #5d75a1
+format-mounted = <label-mounted>
+label-mounted = %free%
 
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.disabled}

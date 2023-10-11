@@ -271,7 +271,7 @@ no_focus [class="steam"]
 
 # AUTOSTART APPS
 exec --no-startup-id i3-msg workspace 10; steam -silent
-exec --no-startup-id sleep 5; discord --start-minimized
+exec --no-startup-id sleep 5; flatpak run com.discordapp.Discord --start-minimized
 
 
 # BACKUP

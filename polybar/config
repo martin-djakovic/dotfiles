@@ -68,7 +68,7 @@ font-2 = MaterialIcons-Regular:size=11;3
 
 modules-left = xworkspaces xwindow
 modules-center = date
-modules-right = xkeyboard multimedia update filesystem pulseaudio memory cpu vpn eth powermenu
+modules-right = xkeyboard multimedia update filesystem pulseaudio memory cpu vpn lockstop eth powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -96,6 +96,14 @@ format-spacing = 0
 
 exec = ~/.config/polybar/vpn.sh
 interval = 5
+
+[module/lockstop]
+type = custom/script
+
+format-spacing = 0
+
+exec = ~/.config/polybar/lockstop.sh
+interval = once
 
 [module/multimedia]
 type = custom/script
@@ -134,11 +142,15 @@ menu-0-1-exec = systemctl poweroff
 menu-0-1-foreground = ${colors.background}
 menu-0-1-background = ${colors.primary}
 
-menu-0-2 = " Lock "
-menu-0-2-exec = dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false
+menu-0-2 = " Sleep"
+menu-0-2-exec = dunstctl set-paused true && systemctl suspend; dunstctl set-paused false
 menu-0-2-foreground = ${colors.background}
 menu-0-2-background = ${colors.primary}
 
+menu-0-3 = " Lock "
+menu-0-3-exec = dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false
+menu-0-3-foreground = ${colors.background}
+menu-0-3-background = ${colors.primary}
 
 [module/systray]
 type = internal/tray

@@ -31,7 +31,7 @@ exec --no-startup-id dunstctl set-paused true && i3lock -i ~/.local/share/wallpa
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -201,7 +201,7 @@ bindsym $mod+p exec /opt/enpass/Enpass
 #}
 
 # autolock screen after 5min
-exec --no-startup-id xautolock -time 5 -locker ~/.config/i3/autolock.sh -notify 5 -notifier dunst
+exec --no-startup-id xautolock -time 5 -locker ~/.config/i3/autolock.sh
 
 # set mouse cursor speed
 exec --no-startup-id xinput set-prop "SteelSeries SteelSeries Rival 3" "libinput Accel Speed" -0.55

@@ -44,6 +44,8 @@ chown -R martin:martin /home/martin/.local
 chown -R martin:martin /home/martin/.config
 chown -R martin:martin /home/martin/.Xresources
 timedatectl set-local-rtc 0
+xdg-settings set default-web-browser firefox-esr.desktop
+xdg-mime default thunar.desktop inode/directory
 
 echo "Don't forget to copy VPN files to /etc/openvpn"
 echo "Set up Timeshift and set rsync destination in i3/config"

@@ -143,12 +143,12 @@ menu-0-1-foreground = ${colors.background}
 menu-0-1-background = ${colors.primary}
 
 menu-0-2 = " Sleep"
-menu-0-2-exec = dunstctl set-paused true && systemctl suspend; dunstctl set-paused false
+menu-0-2-exec = setxkbmap us; dunstctl set-paused true; systemctl suspend; dunstctl set-paused false; setxkbmap -layout "us,rs,rs" -variant ",latinyz,"
 menu-0-2-foreground = ${colors.background}
 menu-0-2-background = ${colors.primary}
 
 menu-0-3 = " Lock "
-menu-0-3-exec = dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false
+menu-0-3-exec = setxkbmap us; xset dpms force suspend && dunstctl set-paused true && i3lock -i ~/.local/share/wallpapers/i3-lockscreen.png -u -n; dunstctl set-paused false && setxkbmap -layout "us,rs,rs" -variant ",latinyz,"
 menu-0-3-foreground = ${colors.background}
 menu-0-3-background = ${colors.primary}
 
@@ -245,7 +245,6 @@ format-connected = <label-connected>
 format-connected-foreground = ${colors.primary-alt}
 format-disconnected = <label-disconnected>
 format-disconnected-foreground = ${colors.disabled}
-label-disconnected = ""
 
 [module/wlan]
 inherit = network-base
@@ -254,8 +253,11 @@ label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
 
 [module/eth]
 inherit = network-base
+interface = enp7s0
+unknown-as-up = false
 interface-type = wired
 label-connected = ""
+label-disconnected = ""
 
 [module/date]
 type = internal/date

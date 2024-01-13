@@ -252,12 +252,10 @@ interface-type = wireless
 label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
 
 [module/eth]
-inherit = network-base
-interface = enp7s0
-unknown-as-up = false
-interface-type = wired
-label-connected = ""
-label-disconnected = ""
+type = custom/script
+format-spacing = 0
+interval = 5
+exec = ~/.config/polybar/check_connection.sh
 
 [module/date]
 type = internal/date

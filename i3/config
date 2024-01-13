@@ -204,7 +204,8 @@ bindsym $mod+p exec /opt/enpass/Enpass
 exec --no-startup-id xautolock -time 5 -locker ~/.config/i3/autolock.sh
 
 # set mouse cursor speed
-exec --no-startup-id xinput set-prop "SteelSeries SteelSeries Rival 3" "libinput Accel Speed" -0.55
+exec --no-startup-id xinput set-prop "SteelSeries SteelSeries Rival 3" "libinput Accel Profile Enabled" 0, 1
+exec --no-startup-id xinput set-prop "SteelSeries SteelSeries Rival 3" "libinput Accel Speed" -0.65
 
 # set monitor refresh rate
 exec --no-startup-id xrandr --output DP-2 --primary --mode 2560x1440 --rate 164.83

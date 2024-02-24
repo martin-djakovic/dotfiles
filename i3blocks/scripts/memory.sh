@@ -63,11 +63,11 @@ END {
 
 	# color
 	if (pct > 90) {
-		print("#FF0000")
+		print("#EBDBB2")
 	} else if (pct > 80) {
-		print("#FFAE00")
+		print("#EBDBB2")
 	} else if (pct > 70) {
-		print("#FFF600")
+		print("#EBDBB2")
 	}
 }
 ' /proc/meminfo

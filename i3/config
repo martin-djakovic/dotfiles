@@ -194,11 +194,11 @@ bindsym $mod+s exec steam
 bindsym $mod+p exec /opt/enpass/Enpass
 
 # toggle autolocking
-bindsym Ctrl+Shift+l exec . ~/.config/i3/lockstop.sh
+bindsym Ctrl+Shift+l exec --no-startup-id . ~/.config/i3/lockstop.sh
 # toggle VPN
-bindsym Ctrl+Shift+n exec pkexec ~/.config/i3/vpn.sh
+bindsym Ctrl+Shift+n exec --no-startup-id pkexec ~/.config/i3/vpn.sh
 # toggle caps lock indicator
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -228,7 +228,7 @@ exec --no-startup-id xinput set-prop "SteelSeries SteelSeries Rival 3" "libinput
 exec --no-startup-id xrandr --output DP-2 --primary --mode 2560x1440 --rate 164.83
 
 # set wallpaper
-exec feh --bg-fill ~/.local/share/wallpapers/macos-mojave-sand-dunes-mojave-desert-california-night-dark-5120x2880-4030.jpg
+exec --no-startup-id feh --bg-fill ~/.local/share/wallpapers/macos-mojave-sand-dunes-mojave-desert-california-night-dark-5120x2880-4030.jpg
 
 # start compositor
 exec --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
@@ -291,6 +291,6 @@ exec --no-startup-id i3-msg workspace 10; steam -silent
 
 
 # BACKUP
-exec rsync -r -t -v --progress --delete -s --update --exclude .steam/ --exclude Downloads --exclude .local/share/Trash /home/martin '/media/martin/Debian Backup/rsync'
+exec --no-startup-id rsync -r -t -v --progress --delete -s --update --exclude .steam/ --exclude Downloads --exclude .local/share/Trash /home/martin '/media/martin/Debian Backup/rsync'
 
 exec --no-startup-id i3-msg workspace 1

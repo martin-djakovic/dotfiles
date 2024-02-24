@@ -20,7 +20,7 @@ rm -f packages.microsoft.gpg
 apt update
 wget https://launcher.mojang.com/download/Minecraft.deb
 wget https://github.com/shiftkey/desktop/releases/download/release-3.3.1-linux1/GitHubDesktop-linux-amd64-3.3.1-linux1.deb
-apt install xorg i3 nvidia-driver nvidia-settings nvidia-driver-libs:i386 pulseaudio alsa-utils steam gimp inkscape lxappearance fonts-font-awesome thunderbird firefox-esr alacritty thunar vim git unzip shotwell celluloid gvfs-backends samba cifs-utils smbclient rofi polybar lightdm nitrogen picom xinput maim xclip xdotool libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev trash-cli gtk2-engines-murrine gtk2-engines-pixbuf rhythmbox xautolock libavcodec-extra playerctl gnome-disk-utility gufw enpass libreoffice libreoffice-gtk3 code printer-driver-hpcups gamemode openvpn openssl openresolv transmission-gtk rsync timeshift pavucontrol gdb flatpak galculator gedit ./Minecraft.deb ./GitHubDesktop-linux-amd64-3.3.1-linux1.deb
+apt install xorg i3 nvidia-driver nvidia-settings nvidia-driver-libs:i386 pulseaudio alsa-utils steam gimp inkscape lxappearance thunderbird firefox-esr alacritty thunar vim git unzip shotwell celluloid gvfs-backends samba cifs-utils smbclient rofi i3blocks lightdm nitrogen picom xinput maim xclip xdotool libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev gtk2-engines-murrine gtk2-engines-pixbuf rhythmbox xautolock libavcodec-extra playerctl gnome-disk-utility gufw enpass libreoffice libreoffice-gtk3 code printer-driver-hpcups gamemode openvpn openssl openresolv transmission-gtk rsync timeshift pavucontrol gdb flatpak galculator gedit kbdd ./Minecraft.deb ./GitHubDesktop-linux-amd64-3.3.1-linux1.deb
 apt install --no-install-recommends lxsession lxpolkit -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install com.discordapp.Discord
@@ -33,10 +33,11 @@ cp -r icons/ /home/martin/.local/share/
 cp .bashrc /home/martin/
 cp .vimrc /home/martin/
 cp lightdm.conf /etc/lightdm/
-cp -r alacritty/ /home/martin/.config/
+cp -r alacritty/* /home/martin/.config/
 cp -r picom/ /home/martin/.config/
 cp -r i3/ /home/martin/.config/
-cp -r polybar/ /home/martin/.config/
+#cp -r polybar/ /home/martin/.config/
+cp -r i3blocks/ /home/martin/.config/
 cp -r dunst/ /home/martin/.config/
 cp -r rofi/ /home/martin/.config/
 mkdir /home/martin/Pictures/screenshots
@@ -48,6 +49,7 @@ xdg-settings set default-web-browser firefox-esr.desktop
 xdg-mime default thunar.desktop inode/directory
 mkdir /boot/grub/theme
 cp -r grub-theme-debian/* /boot/grub/theme/
+cp -r .fonts/ /home/martin/
 cp grub /etc/default/
 update-grub
 

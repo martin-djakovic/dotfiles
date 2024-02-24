@@ -46,4 +46,7 @@ colors:
     magenta: '#6e4962'
     cyan:    '#5c8482'
     white:   '#828282'
-
+font:
+    normal:
+        family: JetBrainsMono Nerd Font
+        style: Regular

@@ -113,3 +113,4 @@ if ! shopt -oq posix; then
 fi
 
 export PS1='\[\e[38;5;74;1m\]\w \[\e[38;5;25m\]> \[\e[0m\]' 
+export PATH="$PATH:/opt/nvim/"

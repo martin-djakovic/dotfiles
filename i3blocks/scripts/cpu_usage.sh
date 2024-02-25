@@ -15,11 +15,11 @@ use Getopt::Long;
 my $t_warn = $ENV{T_WARN} // 50;
 my $t_crit = $ENV{T_CRIT} // 80;
 my $cpu_usage = -1;
-my $decimals = $ENV{DECIMALS} // 2;
+my $decimals = $ENV{DECIMALS} // 1;
 my $label = $ENV{LABEL} // "";
 my $color_normal = $ENV{COLOR_NORMAL} // "#EBDBB2";
-my $color_warn = $ENV{COLOR_WARN} // "#FFFC00";
-my $color_crit = $ENV{COLOR_CRIT} // "#FF0000";
+my $color_warn = $ENV{COLOR_WARN} // "#FAC898";
+my $color_crit = $ENV{COLOR_CRIT} // "#FAA0A0";
 
 sub help {
     print "Usage: cpu_usage [-w <warning>] [-c <critical>] [-d <decimals>]\n";

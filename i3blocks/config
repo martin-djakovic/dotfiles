@@ -53,7 +53,7 @@ signal=10
 command=$SCRIPT_DIR/cpu_usage.sh
 interval=10
 label= 
-min_width= 100.00%
+min_width= 100.0%
 
 # Memory usage
 #

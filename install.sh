@@ -19,7 +19,7 @@ apt update
 wget https://launcher.mojang.com/download/Minecraft.deb
 wget https://github.com/shiftkey/desktop/releases/download/release-3.3.1-linux1/GitHubDesktop-linux-amd64-3.3.1-linux1.deb
 
-apt install xorg i3 nvidia-driver nvidia-settings nvidia-driver-libs:i386 pulseaudio alsa-utils steam gimp inkscape lxappearance thunderbird firefox-esr alacritty thunar vim git unzip shotwell celluloid gvfs-backends samba cifs-utils smbclient rofi i3blocks lightdm feh picom xinput maim xclip xdotool libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev gtk2-engines-murrine gtk2-engines-pixbuf rhythmbox xautolock htop libavcodec-extra playerctl gnome-disk-utility gufw enpass libreoffice libreoffice-gtk3 printer-driver-hpcups gamemode openvpn openssl openresolv transmission-gtk rsync timeshift pavucontrol gdb flatpak galculator gedit ./Minecraft.deb ./GitHubDesktop-linux-amd64-3.3.1-linux1.deb -y
+apt install xorg i3 nvidia-driver nvidia-settings nvidia-driver-libs:i386 pulseaudio alsa-utils steam gimp inkscape lxappearance thunderbird firefox-esr alacritty thunar vim git unzip shotwell celluloid gvfs-backends samba cifs-utils smbclient rofi i3blocks lightdm feh picom xinput maim xclip xdotool libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev gtk2-engines-murrine gtk2-engines-pixbuf rhythmbox xautolock htop libavcodec-extra playerctl gnome-disk-utility gufw enpass libreoffice libreoffice-gtk3 printer-driver-hpcups gamemode openvpn openssl openresolv transmission-gtk rsync timeshift pavucontrol gdb flatpak galculator mousepad python3.11-venv ./Minecraft.deb ./GitHubDesktop-linux-amd64-3.3.1-linux1.deb -y
 apt install --no-install-recommends lxsession lxpolkit -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install com.discordapp.Discord
@@ -52,6 +52,7 @@ chown -R martin:martin /home/martin/.local
 chown -R martin:martin /home/martin/.config
 chown -R martin:martin /home/martin/.Xresources
 chown -R martin:martin /home/martin/Pictures/screenshots
+chown -R martin:martin /opt/nvim/nvim
 
 timedatectl set-local-rtc 0
 

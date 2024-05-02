@@ -58,6 +58,7 @@ timedatectl set-local-rtc 0
 
 xdg-settings set default-web-browser firefox-esr.desktop
 xdg-mime default thunar.desktop inode/directory
+xset s off
 
 mkdir /boot/grub/theme
 cp -r grub-theme-debian/* /boot/grub/theme/

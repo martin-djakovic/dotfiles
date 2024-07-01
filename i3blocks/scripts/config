@@ -1,0 +1,111 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=$SCRIPT_DIR/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+
+[keyindicator]
+command=$SCRIPT_DIR/keyindicator.sh
+markup=pango
+interval=once
+signal=11
+separator=false
+
+[kbdd_layout]
+label= 
+color=#869dc6
+command=$SCRIPT_DIR/kbdd_layout.sh
+interval=persist
+
+[volume]
+color=#869dc6
+label=
+command=$SCRIPT_DIR/volume.sh
+interval=once
+signal=10
+
+[cpu_usage]
+command=$SCRIPT_DIR/cpu_usage.sh
+interval=10
+label= 
+min_width= 100.0%
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+[memory]
+color=#869dc6
+label=
+command=$SCRIPT_DIR/memory.sh
+interval=10
+
+# Disk usage
+#
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+[disk]
+color=#869dc6
+label=
+command=$SCRIPT_DIR/disk.sh
+interval=60
+
+# apt upgrades
+[update]
+color=#b8d8be
+label=
+command=$SCRIPT_DIR/update.sh
+interval=once
+
+# Date Time
+#
+[time]
+command=date '+%H:%M %a %b %d, %Y'
+interval=5
+min_width=00:00 Mon Jan 31, 2024
+
+[lockstop]
+command=$SCRIPT_DIR/lockstop.sh
+interval=once
+signal=10
+separator=false
+
+[openvpn]
+command=$SCRIPT_DIR/vpn.sh
+separator=false
+interval=10
+
+[iface]
+command=$SCRIPT_DIR/check_connection.sh
+color=#869dc6
+interval=5
+
+[shutdown_menu]
+color=#869dc6
+full_text=   
+command=$SCRIPT_DIR/shutdown_menu.sh

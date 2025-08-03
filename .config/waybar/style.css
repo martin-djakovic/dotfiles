@@ -1,0 +1,66 @@
+@define-color accent #afa193;
+@define-color fg #f6f1ea;
+@define-color bg #101010;
+@define-color bg-alt #252525;
+
+* {
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @bg;
+    border-bottom: 1px solid @bg-alt;
+}
+
+#mode {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    color: @accent;
+}
+
+#language {
+    font-family: "JetBrainsMono Nerd Font";
+    color: @fg;
+}
+
+#pulseaudio {
+    font-family: "JetBrainsMono Nerd Font";
+    color: @fg;
+}
+
+#custom-clock {
+    font-family: "JetBrainsMono Nerd Font";
+    color: @fg;
+}
+
+#workspaces {
+    font-family: "JetBrainsMono Nerd Font";
+    border-bottom: 1px solid @bg-alt;
+}
+
+#workspaces button {
+    padding: 3px 10px 3px 10px;
+    color: @fg;
+    background-color: @bg;
+    border: none;
+}
+
+#workspaces button:hover {
+    background: none;
+    border: none;
+    border-color: transparent;
+    transition: none;
+}
+
+#workspaces button.focused {
+    border-radius: 0;
+    color: @accent;
+    font-weight: bold;
+}
+
+#tray {
+    font-family: "Ubuntu";
+    padding-right: 5px;
+    padding-left: 10px;
+}

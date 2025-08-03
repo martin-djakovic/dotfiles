@@ -1,0 +1,3 @@
+[Added Associations]
+image/jpeg=gimp.desktop;org.gnome.Shotwell-Viewer.desktop;
+image/png=org.gnome.Shotwell-Viewer.desktop;

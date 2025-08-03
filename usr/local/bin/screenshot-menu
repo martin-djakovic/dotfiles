@@ -1,0 +1,25 @@
+#!/bin/bash
+
+selected=$(
+echo -e "entire screen, save to folder
+select area, save to folder
+entire screen, copy to clipboard
+select area, copy to clipboard" | rofi -dmenu -p "screenshot: " -l 4 -format i -theme-str "window {width: 420px; }")
+
+[[ -z $selected ]] && exit
+
+if [ $selected -eq 0 ]; then
+    sleep 1; grim -t png "/home/$USER/Pictures/screenshots/$(date +'%X_%d-%m-%Y').png"
+fi
+
+if [ $selected -eq 1 ]; then
+	sleep 1; grim -t png -g "$(slurp)" "/home/$USER/Pictures/screenshots/$(date +'%X_%d-%m-%Y').png"
+fi
+
+if [ $selected -eq 2 ]; then
+    sleep 1; grim -t png - | wl-copy -t image/png
+fi
+
+if [ $selected -eq 3 ]; then
+    sleep 1; grim -t png -g "$(slurp)" - | wl-copy -t image/png
+fi

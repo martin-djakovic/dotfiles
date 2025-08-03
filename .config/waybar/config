@@ -1,0 +1,40 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "height": 30,
+    "spacing": 0,
+    "modules-left": ["sway/workspaces","sway/mode"],
+    "modules-center": ["custom/clock"],
+    "modules-right": ["sway/language", "pulseaudio", "tray"],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "format": "{icon}{name}",
+        "format-icons": {
+            "default": " ",
+            "urgent": "!",
+            "focused": "*"
+        }
+    },
+
+    "custom/clock": {
+        "format": "<span color='#252525'>[ </span>{text}<span color='#252525'> ]</span>",
+        "exec": "date +'%H:%M %A, %b %d' | awk '{print tolower($0)}'",
+        "interval": 3
+    },
+
+    "sway/language": {
+        "format": "<span color='#252525'>[ </span><span color='#afa193'><b>key: </b></span>{short}<span color='#252525'> / </span>",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "format": "<span color='#afa193'><b>vol:</b></span> {volume}%<span color='#252525'> ]</span>"
+    },
+    
+    "tray": {
+        "icon-size": 20,
+        "spacing": 7,
+        "tooltip": false
+    }
+}

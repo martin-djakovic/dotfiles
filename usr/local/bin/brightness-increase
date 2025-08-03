@@ -1,0 +1,5 @@
+#!/bin/bash
+
+brightnessctl set +5%
+
+/usr/local/bin/brightness-notification

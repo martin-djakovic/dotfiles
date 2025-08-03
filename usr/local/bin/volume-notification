@@ -1,0 +1,5 @@
+#!/bin/bash
+
+volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | sed 's/.$//')
+
+dunstify -i audio-volume-high-symbolic -h int:value:"$volume" -t 1000 Volume

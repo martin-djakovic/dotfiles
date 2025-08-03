@@ -1,0 +1,257 @@
+include /etc/sway/config.d/*
+include ~/.config/sway/settings
+
+set $script_dir /usr/local/bin
+
+exec dbus-update-activation-environment --all
+
+### Set GTK settings
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme $gtk_theme
+    gsettings set org.gnome.desktop.interface icon-theme $icon_theme
+    gsettings set org.gnome.desktop.interface font-name $font
+    gsettings set org.gnome.desktop.interface monospace-font-name $monospace_font
+    gsettings set org.gnome.desktop.wm.preferences button-layout ':'
+    gsettings set org.gnome.desktop.interface cursor-theme $cursor_theme
+    gsettings set org.gnome.desktop.interface cursor-size $cursor_size
+}
+
+seat seat0 xcursor_theme $cursor_theme $cursor_size
+
+### Output configuration
+#
+# Wallpaper
+output * bg ~/.local/share/wallpapers/wallpaper.jpg fill
+#
+# Example configuration:
+#
+output DP-2 resolution 2560x1440@164.834Hz adaptive_sync off allow_tearing yes
+
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+exec swayidle -w \
+    timeout 420 $script_dir/lock \
+    timeout 410 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep $script_dir/lock
+
+for_window [class="^.*"] inhibit_idle fullscreen
+for_window [app_id="^.*"] inhibit_idle fullscreen
+
+### Input configuration
+input type:pointer {
+    accel_profile "flat"
+    pointer_accel 0.12
+}
+
+input type:keyboard {
+    xkb_layout "us,rs"
+    xkb_variant ",latinyz"
+    xkb_options "grp:alt_shift_toggle,caps:super"
+}
+
+### Window decorations
+gaps inner 5
+gaps outer 0
+default_border pixel 2
+default_floating_border pixel 2
+
+# You can also configure each device individually.
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Mod1+Return exec $term
+    
+    # Start browser
+    bindsym $mod+b exec $web
+
+    # Start steam
+    bindsym $mod+g exec steam
+
+    # Start file browser
+    bindsym $mod+f exec $file_browser
+
+    # Display power menu
+    bindsym --release $mod+Mod1+q exec $script_dir/power-menu
+
+    # Kill focused window
+    bindsym $mod+Mod1+c kill
+
+    # Start your launcher
+    bindsym $mod+x exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Mod1+$left move left
+    bindsym $mod+Mod1+$down move down
+    bindsym $mod+Mod1+$up move up
+    bindsym $mod+Mod1+$right move right
+#
+# Workspaces:
+#
+    set $ws1  1    
+    set $ws2  2    
+    set $ws3  3    
+    set $ws4  4    
+    set $ws5  5    
+    set $ws6  6    
+    set $ws7  7    
+    set $ws8  8    
+    set $ws9  9    
+    set $ws10 10    
+
+    # Switch to workspace
+    bindsym $mod+1 workspace number $ws1
+    bindsym $mod+2 workspace number $ws2
+    bindsym $mod+3 workspace number $ws3
+    bindsym $mod+4 workspace number $ws4
+    bindsym $mod+5 workspace number $ws5
+    bindsym $mod+6 workspace number $ws6
+    bindsym $mod+7 workspace number $ws7
+    bindsym $mod+8 workspace number $ws8
+    bindsym $mod+9 workspace number $ws9
+    bindsym $mod+0 workspace number $ws10
+    # Move focused container to workspace
+    bindsym $mod+Mod1+1 move container to workspace number $ws1
+    bindsym $mod+Mod1+2 move container to workspace number $ws2
+    bindsym $mod+Mod1+3 move container to workspace number $ws3
+    bindsym $mod+Mod1+4 move container to workspace number $ws4
+    bindsym $mod+Mod1+5 move container to workspace number $ws5
+    bindsym $mod+Mod1+6 move container to workspace number $ws6
+    bindsym $mod+Mod1+7 move container to workspace number $ws7
+    bindsym $mod+Mod1+8 move container to workspace number $ws8
+    bindsym $mod+Mod1+9 move container to workspace number $ws9
+    bindsym $mod+Mod1+0 move container to workspace number $ws10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+h splith
+    bindsym $mod+v splitv
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+Shift+space focus mode_toggle
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Mod1+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "< R >" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Return to default mode
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "< R >"
+
+# Floating window rules
+for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+
+#
+# Utilities:
+#
+    # Special keys to adjust volume via PulseAudio
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec $script_dir/volume-decrease
+    bindsym --locked XF86AudioRaiseVolume exec $script_dir/volume-increase
+    # Special keys to adjust brightness via brightnessctl
+    bindsym --locked XF86MonBrightnessDown exec $script_dir/brightness-decrease
+    bindsym --locked XF86MonBrightnessUp exec $script_dir/brightness-increase
+    # Special key to take a screenshot with grim
+    bindsym Print exec $script_dir/screenshot-menu
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    swaybar_command waybar
+    
+    height 36px
+    tray_padding 3px
+    icon_theme $icon_theme
+    workspace_min_width 50px
+    separator_symbol " "
+
+    colors {
+        statusline $fg
+        background $bg
+        #                   border  bg      text
+        focused_workspace   $accent $accent $bg
+        inactive_workspace  $bg     $bg     $fg
+        urgent_workspace    $bg     $bg     $fg
+    }
+}
+
+# Window colors
+# class                 border  backgr. text    indicator child_border
+client.focused          $accent $bg     $fg     $accent   $accent
+client.focused_inactive $bg     $bg     $fg     $bg       $bg
+client.unfocused        $bg     $bg     $fg     $bg       $bg
+client.urgent           $bg     $bg     $fg     $bg       $bg
+client.placeholder      $bg     $bg     $fg     $bg       $bg
+
+client.background       $bg
+
+# Autostart applications
+exec pidof /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec pidof nm-applet || nm-applet
+exec pidof dunst || dunst
+exec pidof steam || steam -silent
+exec pidof /opt/enpass/Enpass || /opt/enpass/Enpass -minimize

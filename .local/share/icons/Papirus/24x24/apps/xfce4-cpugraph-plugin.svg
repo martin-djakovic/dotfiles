@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" version="1">
+ <path style="opacity:0.2" d="M 5.75,2.5 C 3.6725,2.5 2,4.1725 2,6.25 v 12.5 c 0,2.0775 1.6725,3.75 3.75,3.75 H 9 C 9,21.8075 9.5575,21 10.25,21 h 3.5 c 0.6925,0 1.25,0.8075 1.25,1.5 h 3.25 C 20.3275,22.5 22,20.8275 22,18.75 V 6.25 C 22,4.1725 20.3275,2.5 18.25,2.5 Z"/>
+ <path style="fill:#d4d4d4" d="M 5.75,2 C 3.6725,2 2,3.6725 2,5.75 v 12.5 C 2,20.3275 3.6725,22 5.75,22 H 9 c 0,-0.6925 0.5575,-1.5 1.25,-1.5 h 3.5 c 0.6925,0 1.25,0.8075 1.25,1.5 h 3.25 C 20.3275,22 22,20.3275 22,18.25 V 5.75 C 22,3.6725 20.3275,2 18.25,2 Z"/>
+ <rect style="opacity:0.1" width="16" height="16" x="4" y="4.5" ry="1.6"/>
+ <rect style="fill:#f4f4f4" width="16" height="16" x="4" y="4" ry="1.6"/>
+ <path style="opacity:0.1;fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" d="m 2,12.500249 h 7 l 2,-4.999999 2,9.999999 2,-5 h 7"/>
+ <path style="fill:none;stroke:#009688;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" d="m 2,11.999999 h 7 l 2,-4.9999985 2,9.9999985 2,-5 h 7"/>
+ <path style="opacity:0.2;fill:#ffffff" d="M 5.75,2 C 3.6725,2 2,3.6725 2,5.75 v 0.5 C 2,4.1725 3.6725,2.5 5.75,2.5 h 12.5 C 20.3275,2.5 22,4.1725 22,6.25 V 5.75 C 22,3.6725 20.3275,2 18.25,2 Z"/>
+</svg>

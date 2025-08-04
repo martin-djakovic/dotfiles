@@ -14,6 +14,9 @@ exec_always {
     gsettings set org.gnome.desktop.wm.preferences button-layout ':'
     gsettings set org.gnome.desktop.interface cursor-theme $cursor_theme
     gsettings set org.gnome.desktop.interface cursor-size $cursor_size
+
+    flatpak override --user --env=GTK_THEME=$gtk_theme
+    flatpak override --user --env=ICON_THEME=$icon_theme
 }
 
 seat seat0 xcursor_theme $cursor_theme $cursor_size

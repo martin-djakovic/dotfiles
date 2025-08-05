@@ -25,9 +25,9 @@ set $fg #f6f1ea
 set $font "Ubuntu Regular 10"
 set $monospace_font "JetBrainsMono Nerd Font 10"
 set $icon_theme "Papirus-Dark"
-set $gtk_theme "Yaru-Beige-dark"
+set $gtk_theme "Yaru-Amber-dark"
 set $cursor_theme "Adwaita"
-set $cursor_size 16
+set $cursor_size 32
 
 # Font
-font pango: JetBrainsMono Nerd Font 12
+font pango: JetBrainsMono Nerd Font 16

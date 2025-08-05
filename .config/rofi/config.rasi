@@ -1,6 +1,6 @@
 configuration {
 	modi: "drun";
-	font: "JetBrainsMono Nerd Font 12";
+	font: "JetBrainsMono Nerd Font 16";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -165,7 +165,7 @@ configuration {
 }
 
 window {
-    width: 300px;
+    width: 385px;
     border: 1px solid;
     border-color: @bg-alt;
 }
@@ -200,7 +200,7 @@ inputbar {
 
 prompt {
     text-color: @accent;
-    font: "JetBrainsMono Nerd Font Bold 12";
+    font: "JetBrainsMono Nerd Font Bold 16";
 }
 
 entry {

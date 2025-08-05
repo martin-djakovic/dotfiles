@@ -1,3 +1,10 @@
 [Added Associations]
 image/jpeg=gimp.desktop;org.gnome.Shotwell-Viewer.desktop;
 image/png=org.gnome.Shotwell-Viewer.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-C081A3.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-C081A3.desktop;
+
+[Default Applications]
+x-scheme-handler/mailto=userapp-Thunderbird-C081A3.desktop
+message/rfc822=userapp-Thunderbird-C081A3.desktop
+x-scheme-handler/mid=userapp-Thunderbird-C081A3.desktop

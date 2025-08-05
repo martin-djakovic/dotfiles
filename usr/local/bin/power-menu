@@ -38,7 +38,7 @@ BORDER_COLOR="${BORDER_COLOR:-#222222}"
 
 # Options not related to colors
 ROFI_TEXT="${ROFI_TEXT:-power menu: }"
-ROFI_OPTIONS=(${ROFI_OPTIONS:--theme-str 'window { width: 250px; } configuration { show-icons: false; } element-text { horizontal-align: 0; }' -location 0 -l 4})
+ROFI_OPTIONS=(${ROFI_OPTIONS:--theme-str 'window { width: 300px; } configuration { show-icons: false; } element-text { horizontal-align: 0; }' -location 0 -l 4})
 
 # Zenity options
 ZENITY_TITLE="${ZENITY_TITLE:-Menu}"

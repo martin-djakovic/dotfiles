@@ -4,7 +4,7 @@
 @define-color bg-alt #252525;
 
 * {
-    font-size: 15px;
+    font-size: 21px;
     min-height: 0;
 }
 
@@ -19,16 +19,10 @@ window#waybar {
     color: @accent;
 }
 
-#language {
-    font-family: "JetBrainsMono Nerd Font";
-    color: @fg;
-}
-
-#pulseaudio {
-    font-family: "JetBrainsMono Nerd Font";
-    color: @fg;
-}
-
+#language,
+#pulseaudio,
+#battery,
+#backlight,
 #custom-clock {
     font-family: "JetBrainsMono Nerd Font";
     color: @fg;
@@ -40,7 +34,7 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 3px 10px 3px 10px;
+    padding: 7px 12px 7px 12px;
     color: @fg;
     background-color: @bg;
     border: none;

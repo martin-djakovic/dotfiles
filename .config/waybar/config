@@ -5,7 +5,7 @@
     "spacing": 0,
     "modules-left": ["sway/workspaces","sway/mode"],
     "modules-center": ["custom/clock"],
-    "modules-right": ["sway/language", "pulseaudio", "tray"],
+    "modules-right": ["sway/language", "pulseaudio", "battery", "backlight", "tray"],
 
     "sway/workspaces": {
         "disable-scroll": true,
@@ -15,6 +15,10 @@
             "urgent": "!",
             "focused": "*"
         }
+    },
+
+    "sway/mode": {
+        "format": "  {}"
     },
 
     "custom/clock": {
@@ -29,7 +33,19 @@
     },
 
     "pulseaudio": {
-        "format": "<span color='#afa193'><b>vol:</b></span> {volume}%<span color='#252525'> ]</span>"
+        "format": "<span color='#afa193'><b>vol:</b></span> {volume}%"
+    },
+    
+    "battery": {
+        "format": "<span color='#252525'> / </span><span color='#afa193'><b>bat:</b></span> {capacity}%",
+        "format-charging": "<span color='#252525'> / </span><span color='#afa193'><b>ac:</b></span> {capacity}%<span color='#252525'> ]</span>",
+        "tooltip": false,
+        "interval": 20
+    },
+
+    "backlight": {
+        "format": "<span color='#252525'> / </span><span color='#afa193'><b>mon:</b></span> {percent}%<span color='#252525'> ]</span>",
+        "tooltip": false
     },
     
     "tray": {

@@ -4,7 +4,7 @@ selected=$(
 echo -e "entire screen, save to folder
 select area, save to folder
 entire screen, copy to clipboard
-select area, copy to clipboard" | rofi -dmenu -p "screenshot: " -l 4 -format i -theme-str "window {width: 420px; }")
+select area, copy to clipboard" | rofi -dmenu -p "screenshot: " -l 4 -format i -theme-str "window {width: 450px; }")
 
 [[ -z $selected ]] && exit
 

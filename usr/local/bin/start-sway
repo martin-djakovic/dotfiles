@@ -14,7 +14,8 @@ export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 export QT_QPA_PLATFORMTHEME=qt5ct
-export GDK_DPI_SCALE=1.2
+export GDK_DPI_SCALE=1.6
 
+export WLR_DRM_DEVICES=/dev/dri/card1
 
-exec sway --unsupported-gpu "$@"
+exec sway "$@"

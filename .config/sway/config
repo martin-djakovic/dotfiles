@@ -72,7 +72,7 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="galculator"] floating enable
 for_window [instance="gufw.py"] floating enable
 
-# KEYBINDINGS
+# GENERAL KEYBINDINGS
 
 # Start a terminal
 bindsym $mod+Mod1+Return exec $term
@@ -85,9 +85,6 @@ bindsym $mod+g exec steam
 
 # Start file browser
 bindsym $mod+f exec $file_browser
-
-# Display power menu
-bindsym --release $mod+Mod1+q exec $script_dir/power-menu
 
 # Kill focused window
 bindsym $mod+Mod1+c kill
@@ -115,20 +112,19 @@ bindsym $mod+Mod1+$down move down
 bindsym $mod+Mod1+$up move up
 bindsym $mod+Mod1+$right move right
 
-# Workspaces:
-#
-set $ws1  1    
-set $ws2  2    
-set $ws3  3    
-set $ws4  4    
-set $ws5  5    
-set $ws6  6    
-set $ws7  7    
-set $ws8  8    
-set $ws9  9    
-set $ws10 10    
+# WORKSPACES
+set $ws1  1
+set $ws2  2
+set $ws3  3
+set $ws4  4
+set $ws5  5
+set $ws6  6
+set $ws7  7
+set $ws8  8
+set $ws9  9
+set $ws10 10
 
-# Switch to workspace
+# Workspace keybindings
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -139,7 +135,7 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
-# Move focused container to workspace
+
 bindsym $mod+Mod1+1 move container to workspace number $ws1
 bindsym $mod+Mod1+2 move container to workspace number $ws2
 bindsym $mod+Mod1+3 move container to workspace number $ws3
@@ -150,14 +146,8 @@ bindsym $mod+Mod1+7 move container to workspace number $ws7
 bindsym $mod+Mod1+8 move container to workspace number $ws8
 bindsym $mod+Mod1+9 move container to workspace number $ws9
 bindsym $mod+Mod1+0 move container to workspace number $ws10
-# Note: workspaces can have any name you want, not just numbers.
-# We just use 1-10 as the default.
-#
-# Layout stuff:
-#
-# You can "split" the current object of your focus with
-# $mod+b or $mod+v, for horizontal and vertical splits
-# respectively.
+
+# LAYOUT KEYBINDS
 bindsym $mod+h splith
 bindsym $mod+v splitv
 
@@ -185,40 +175,30 @@ mode "< R >" {
 
 bindsym $mod+r mode "< R >"
 
-# Floating window rules
-for_window [class="Galculator" instance="galculator"] floating enable
-for_window [class="pavucontrol" instance="pavucontrol"] floating enable
-for_window [class="Nm-connection-editor"] floating enable
+# UTILITIES/ACTION KEYBINDINGS
 
-#
-# Utilities:
-#
 # Special keys to adjust volume via PulseAudio
 bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioLowerVolume exec $script_dir/volume-decrease
 bindsym --locked XF86AudioRaiseVolume exec $script_dir/volume-increase
+
 # Special keys to adjust brightness via brightnessctl
 bindsym --locked XF86MonBrightnessDown exec $script_dir/brightness-decrease
 bindsym --locked XF86MonBrightnessUp exec $script_dir/brightness-increase
+
 # Special key to take a screenshot with grim
 bindsym Print exec $script_dir/screenshot-menu
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+# Display power menu
+bindsym --release $mod+Mod1+q exec $script_dir/power-menu
+
+# STATUS BAR
 bar {
     position top
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
     swaybar_command waybar
     
-    height 36px
-    tray_padding 3px
     icon_theme $icon_theme
-    workspace_min_width 50px
-    separator_symbol " "
 
     colors {
         statusline $fg
@@ -230,7 +210,7 @@ bar {
     }
 }
 
-# Window colors
+# WINDOW COLORS
 # class                 border  backgr. text    indicator child_border
 client.focused          $accent $bg     $fg     $accent   $accent
 client.focused_inactive $bg     $bg     $fg     $bg       $bg
@@ -240,7 +220,7 @@ client.placeholder      $bg     $bg     $fg     $bg       $bg
 
 client.background       $bg
 
-# Autostart applications
+# AUTOSTART
 exec_always {
     pidof /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     pidof nm-applet || nm-applet

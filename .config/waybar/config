@@ -38,7 +38,7 @@
     
     "battery": {
         "format": "<span color='#252525'> / </span><span color='#afa193'><b>bat:</b></span> {capacity}%",
-        "format-charging": "<span color='#252525'> / </span><span color='#afa193'><b>ac:</b></span> {capacity}%<span color='#252525'> ]</span>",
+        "format-charging": "<span color='#252525'> / </span><span color='#afa193'><b>ac:</b></span> {capacity}%",
         "tooltip": false,
         "interval": 20
     },

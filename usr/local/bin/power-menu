@@ -116,7 +116,7 @@ typeset -A menu
 menu=(
   [reboot]="systemctl reboot"
   [shutdown]="systemctl poweroff"
-  [lock]="/home/martin/.scripts/lock.sh"
+  [lock]="/usr/local/bin/lock"
   [cancel]=""
 )
 menu_nrows=${#menu[@]}

@@ -1,5 +1,11 @@
 #!/bin/bash
 
 volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | sed 's/.$//')
+muted=$(awk -F"[][]" '/Left:/ { print $4 }' <(amixer sget Master))
+title="Volume"
 
-dunstify -i audio-volume-high-symbolic -h int:value:"$volume" -t 1000 Volume
+if [ "$muted" = "off" ]; then
+	title="Volume (MUTED)"
+fi
+
+dunstify -h int:value:"$volume" -t 1000 "$title"

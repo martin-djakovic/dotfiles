@@ -33,7 +33,8 @@
     },
 
     "pulseaudio": {
-        "format": "<span color='#afa193'><b>vol:</b></span> {volume}%"
+        "format": "<span color='#afa193'><b>vol:</b></span> {volume}%",
+        "format-muted": "<span color='#afa193'><b>vol:</b></span> {volume}% (m)"
     },
     
     "battery": {

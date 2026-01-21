@@ -31,8 +31,8 @@ output eDP-1 resolution 2560x1440@240Hz adaptive_sync on allow_tearing yes
 
 # IDLE CONFIGURATION
 exec swayidle -w \
-    timeout 420 $script_dir/lock \
-    timeout 410 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    timeout 310 $script_dir/lock \
+    timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep $script_dir/lock
 
 for_window [class="^.*"] inhibit_idle fullscreen
@@ -41,7 +41,7 @@ for_window [app_id="^.*"] inhibit_idle fullscreen
 # INPUT CONFIGURATION
 input type:pointer {
     accel_profile "flat"
-    pointer_accel 0.12
+    pointer_accel -0.45
 }
 
 input type:touchpad {

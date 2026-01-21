@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DEST="/mnt/external/home-backup"
+SOURCE="/home/martin/"
+
+DATETIME="$(date +'%Y-%m-%d_%H-%M-%S')"
+LOG="/var/log/rsync-home/$DATETIME.log"
+
+rsync -av --delete --exclude=".local/share/Trash/" --exclude=".steam/" --exclude=".local/share/Steam" --exclude="Games/" --log-file="$LOG" "$SOURCE" "$DEST/latest"

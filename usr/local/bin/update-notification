@@ -1,0 +1,5 @@
+#!/bin/bash
+
+updates=$(checkupdates | wc -l)
+
+dunstify -u critical -i system-reboot "System update" "There are $updates packages to upgrade"

@@ -178,7 +178,7 @@ bindsym $mod+r mode "< R >"
 # UTILITIES/ACTION KEYBINDINGS
 
 # Special keys to adjust volume via PulseAudio
-bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle && $script_dir/volume-notification
 bindsym --locked XF86AudioLowerVolume exec $script_dir/volume-decrease
 bindsym --locked XF86AudioRaiseVolume exec $script_dir/volume-increase
 

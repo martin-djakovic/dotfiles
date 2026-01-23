@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dunstify -i system-run -u critical "System maintenance" "Execute maintenance-run from terminal"

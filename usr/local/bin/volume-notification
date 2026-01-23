@@ -3,9 +3,21 @@
 volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | sed 's/.$//')
 muted=$(awk -F"[][]" '/Left:/ { print $4 }' <(amixer sget Master))
 title="Volume"
+body=$(/usr/local/bin/print-progress-bar "$volume")
+icon="audio-volume-high"
+
+if [ "$volume" -lt 75 ]; then
+	icon="audio-volume-medium"
+fi
+
+
+if [ "$volume" -lt 35 ]; then
+	icon="audio-volume-low"
+fi
 
 if [ "$muted" = "off" ]; then
 	title="Volume (MUTED)"
+	icon="audio-volume-muted"
 fi
 
-dunstify -h int:value:"$volume" -t 1000 "$title"
+dunstify -i "$icon" -h string:x-dunst-stack-tag:audio -t 1000 "$title" "$body"

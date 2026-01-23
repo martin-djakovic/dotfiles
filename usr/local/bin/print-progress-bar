@@ -1,0 +1,20 @@
+#!/bin/bash
+w=20
+p=$1
+shift
+
+# Calculate number of dots
+num_dots=$(( p*w/100 ))
+
+# Build dots string by repeating the character
+dots=""
+for ((i=0; i<num_dots; i++)); do
+    dots="${dots}∙"
+done
+
+# Calculate remaining spaces
+remaining=$(( w - num_dots ))
+spaces=$(printf "%${remaining}s" "")
+
+# Print with manual padding
+printf "[%s%s] %3d %% %s" "$dots" "$spaces" "$p" "$*"

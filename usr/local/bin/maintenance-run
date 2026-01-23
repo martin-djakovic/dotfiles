@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [ "$EUID" = 0 ]; then
+    echo "Do not run this script as root!"
+    echo "Exiting..."
+    exit 1
+fi
+
+# Clear pacman and AUR cache
+echo -e "\n[*] Clearing pacman and AUR cache"
+yay -Scc --noconfirm
+
+# Remove unused flatpaks
+echo -e "\n[*] Removing unused flatpaks"
+flatpak remove --unused -y
+
+# Clear logs
+echo -e "\n[*] Clearing system journal"
+sudo journalctl --vacuum-size=100M
+
+# Remove orphaned packages
+echo -e "\n[*] Removing orphaned packages..."
+orphaned=$(yay -Qtdq 2>/dev/null || true)
+if [[ -n "$orphaned" ]]; then
+    echo "$orphaned" | yay -Rns --noconfirm -
+else
+    echo "No orphaned packages."
+fi
+
+# Empty trash (if requested)
+echo -e "\n[*] Emptying trash"
+read -n 1 -p "Do you want to empty trash? (y/n) " answer
+if [[ $answer = [Yy] ]]; then
+    echo -e "\nEmptying $HOME/.local/share/Trash/files/"
+    rm -rf "$HOME/.local/share/Trash/files/*"
+    echo "Trash successfully deleted"
+fi
+
+echo -e "\nCleanup complete!"

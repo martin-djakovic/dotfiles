@@ -1,5 +1,6 @@
 #!/bin/bash
 
 brightness=$(brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}')
+body=$(/usr/local/bin/print-progress-bar "$brightness")
 
-dunstify -i display-brightness-symbolic -h int:value:"$brightness" -t 1000 Brightness
+dunstify -i contrast -h string:x-dunst-stack-tag:brightness -t 1000 "Brightness" "$body"

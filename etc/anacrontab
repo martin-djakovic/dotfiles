@@ -1,0 +1,15 @@
+# /etc/anacrontab: configuration file for anacron
+
+# See anacron(8) and anacrontab(5) for details.
+
+SHELL=/bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+# the maximal random delay added to the base delay of the jobs
+RANDOM_DELAY=0
+# the jobs will be started during the following hours only
+START_HOURS_RANGE=0-23
+
+#period in days   delay in minutes   job-identifier   command
+7  1	weekly-update		/usr/local/bin/update-notification
+30 1	monthly-maintenance	/usr/local/bin/maintenance-notification

@@ -19,6 +19,7 @@ To use my configuration you will need to install the following:
 - `hyprlock`
 - `brightnessctl`
 - `alsa-utils`
+- `acpid`
 
 ## Looking for something else?
 This repository used to contain dotfiles for a dwm setup. However, I have since switched to sway, and updated this repository to reflect my current configuration.

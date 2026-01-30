@@ -1,0 +1,62 @@
+#!/bin/bash
+
+round() { awk -v n=$1 -v d=$2 'BEGIN{print int((n+d/2)/d) * d}'; }
+notify() { dunstify -h string:x-dunst-stack-tag:battery -i "$1" "$2" "$3"; }
+
+bat_percent_file="/tmp/last-battery-percentage"
+touch "$bat_percent_file"
+
+level=$(acpi -b | grep -P -o '[0-9]+(?=%)')
+charging=$(cat /sys/class/power_supply/BAT0/status)
+
+icon_level="0$(round $level 10)"
+icon_charging="-charging"
+
+if [ ! -s "$bat_percent_file" ]; then
+	echo "$level" > "$bat_percent_file"
+	exit 0;
+fi
+
+last_level=$(cat "$bat_percent_file")
+
+if [ "$(round $level 10)" -eq "100" ]; then
+	icon_level="100"
+fi
+
+if [ "$charging" = "Discharging" ]; then
+	icon_charging=""
+fi
+
+icon="battery-$icon_level$icon_charging"
+
+if [ "$level" -lt 5 ] && [ "$last_level" -ge 5 ] && [ "$charging" = "Discharging" ]; then
+	title="Connect charger immediately"
+	body="Battery is below 5%, suspending in 45 seconds"
+	icon="battery-010"
+
+	notify "$icon" "$title" "$body"
+	
+	sleep 35
+
+	body="Suspending in 10 seconds"
+
+	notify "$icon" "$title" "$body"
+
+	if [ "$charging" = "Discharging" ]; then
+		systemctl suspend
+	fi
+fi
+
+if [ "$level" -ge 80 ] && [ "$last_level" -lt 80 ] && [ "$charging" != "Discharging" ]; then
+	title="Consider disconnecting charger"
+	body="Battery is at $level%"
+	notify "$icon" "$title" "$body"
+fi
+
+if [ "$level" -lt 25 ] && [ "$last_level" -ge 25 ] && [ "$charging" = "Discharging" ]; then
+	title="Connect charger"
+	body="Battery is at $level%"
+	notify "$icon" "$title" "$body"
+fi
+
+echo "$level" > "$bat_percent_file"

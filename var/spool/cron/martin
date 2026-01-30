@@ -1,0 +1,2 @@
+@reboot sleep 10 && /usr/local/bin/rsync-home
+* * * * * DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" /usr/local/bin/battery-notification &> /tmp/cron-martin.log

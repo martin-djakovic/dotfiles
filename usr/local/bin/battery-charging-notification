@@ -1,0 +1,32 @@
+#!/bin/bash
+
+round() { awk -v n=$1 -v d=$2 'BEGIN{print int((n+d/2)/d) * d}'; }
+notify() { dunstify -h string:x-dunst-stack-tag:battery -i "$1" "$2" "$3"; }
+
+sleep 1
+
+level=$(acpi -b | grep -P -o '[0-9]+(?=%)')
+charging=$(cat /sys/class/power_supply/BAT0/status)
+
+icon_level="0$(round $level 10)"
+icon_charging="-charging"
+
+if [ "$(round $level 10)" -eq "100" ]; then
+    icon_level="100"
+fi
+
+if [ "$charging" = "Discharging" ]; then
+    icon_charging=""
+fi
+
+icon="battery-$icon_level$icon_charging"
+
+if [ "$charging" = "Discharging" ]; then
+    title="Battery discharging"
+    body="Charger no longer connected"
+else
+    title="Battery charging"
+    body="Charger connected"
+fi
+
+notify "$icon" "$title" "$body"

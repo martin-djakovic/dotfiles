@@ -1,1 +1,0 @@
-@reboot sleep 10 && /usr/local/bin/rsync-home

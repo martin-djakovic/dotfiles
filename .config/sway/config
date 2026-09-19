@@ -37,6 +37,7 @@ exec swayidle -w \
 
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
+for_window [app_id="gamescope"] inhibit_idle focus
 
 # INPUT CONFIGURATION
 input type:pointer {
@@ -70,6 +71,7 @@ for_window [window_role="dialog"] floating enable
 
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="galculator"] floating enable
+for_window [app_id="gamescope"] floating enable
 for_window [instance="gufw.py"] floating enable
 
 # GENERAL KEYBINDINGS

@@ -24,7 +24,8 @@
     "custom/clock": {
         "format": "<span color='#252525'>[ </span>{text}<span color='#252525'> ]</span>",
         "exec": "date +'%H:%M %A, %b %d' | awk '{print tolower($0)}'",
-        "interval": 3
+        "interval": 3,
+        "tooltip": false
     },
 
     "sway/language": {

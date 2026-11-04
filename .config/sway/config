@@ -3,7 +3,8 @@ include ~/.config/sway/settings
 
 set $script_dir /usr/local/bin
 
-exec dbus-update-activation-environment --all
+exec dbus-update-activation-environment --systemd --all
+exec systemctl --user start sway-session.target
 
 # GTK SETTINGS
 exec_always {
@@ -228,5 +229,5 @@ exec_always {
     pidof nm-applet || nm-applet
     pidof dunst || dunst
     pidof steam || steam -silent
-    pidof Enpass || QT_SCALE_FACTOR=2 /opt/enpass/Enpass -minimize
+    pidof keepassxc || keepassxc
 }

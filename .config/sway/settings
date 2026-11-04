@@ -11,7 +11,7 @@ set $term alacritty
 # Application launcher
 set $menu 'rofi -show drun'
 # Web browser
-set $web 'flatpak run io.gitlab.librewolf-community'
+set $web 'librewolf'
 # Graphical file browser
 set $file_browser thunar
 

@@ -8,7 +8,8 @@ fi
 
 # Clear pacman and AUR cache
 echo -e "\n[*] Clearing pacman and AUR cache"
-yay -Scc --noconfirm
+sudo paccache -rk1
+sudo paccache -ruk0
 
 # Remove unused flatpaks
 echo -e "\n[*] Removing unused flatpaks"
@@ -17,6 +18,9 @@ flatpak remove --unused -y
 # Clear logs
 echo -e "\n[*] Clearing system journal"
 sudo journalctl --vacuum-size=100M
+
+echo -e "\n[*] Clearing /var/log/rsync-home/"
+sudo rm -rf /var/log/rsync-home/*
 
 # Remove orphaned packages
 echo -e "\n[*] Removing orphaned packages..."
@@ -32,7 +36,7 @@ echo -e "\n[*] Emptying trash"
 read -n 1 -p "Do you want to empty trash? (y/n) " answer
 if [[ $answer = [Yy] ]]; then
     echo -e "\nEmptying $HOME/.local/share/Trash/files/"
-    rm -rf "$HOME/.local/share/Trash/files/*"
+    rm -rf $HOME/.local/share/Trash/files/*
     echo "Trash successfully deleted"
 fi
 

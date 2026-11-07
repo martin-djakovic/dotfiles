@@ -15,6 +15,7 @@ exec_always {
     gsettings set org.gnome.desktop.wm.preferences button-layout ':'
     gsettings set org.gnome.desktop.interface cursor-theme $cursor_theme
     gsettings set org.gnome.desktop.interface cursor-size $cursor_size
+    gsettings set org.gnome.desktop.interface text-scaling-factor $dpi_scale
 
     flatpak override --user --env=GTK_THEME=$gtk_theme
     flatpak override --user --env=ICON_THEME=$icon_theme
@@ -84,7 +85,7 @@ bindsym $mod+Mod1+Return exec $term
 bindsym $mod+b exec $web
 
 # Start steam
-bindsym $mod+g exec steam
+bindsym $mod+g exec env GDK_DPI_SCALE=$dpi_scale steam
 
 # Start file browser
 bindsym $mod+f exec $file_browser
@@ -228,6 +229,6 @@ exec_always {
     pidof /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
     pidof nm-applet || nm-applet
     pidof dunst || dunst
-    pidof steam || steam -silent
+    pidof steam || env GDK_DPI_SCALE=$dpi_scale steam -silent
     pidof keepassxc || keepassxc
 }

@@ -28,6 +28,7 @@ set $icon_theme "Papirus-Dark"
 set $gtk_theme "Yaru-Amber-dark"
 set $cursor_theme "Adwaita"
 set $cursor_size 32
+set $dpi_scale 1.6
 
 # Font
 font pango: JetBrainsMono Nerd Font 16

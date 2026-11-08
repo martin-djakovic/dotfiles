@@ -16,6 +16,7 @@ exec_always {
     gsettings set org.gnome.desktop.interface cursor-theme $cursor_theme
     gsettings set org.gnome.desktop.interface cursor-size $cursor_size
     gsettings set org.gnome.desktop.interface text-scaling-factor $dpi_scale
+    gsettings set org.gnome.desktop.interface font-antialiasing 'grayscale'
 
     flatpak override --user --env=GTK_THEME=$gtk_theme
     flatpak override --user --env=ICON_THEME=$icon_theme
